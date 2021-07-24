@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game | Vanilla Code Snippets</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=STIX+Two+Math&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/logo.svg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../">
+            <img src="../images/logo.svg" alt="vanilla-code-snippets-logo" class="logo">
+        </a>
+        <h1>Guess the number game</h1>
+    </header>
+    <main>
+        <article class="guess-number-section">
+            <section id="gameSettings">
+                <h2>Game settings</h2>
+                <form onsubmit="startGame(event)" id="gameSettingsForm">
+                    <div>
+                        <label for="minimum-range">Select the minimum Range</label>
+                        <select id="minRange" onchange="displayMaxRange(this)" required>
+                            <option selected>0</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>25</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="maximum-range">Select the maximum Range</label>
+                        <select id="maxRange" required>
+                            <option selected>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>50</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="maximum-attempts">Select the maximum attempts</label>
+                        <select id="maxAttempts" required>
+                            <option selected>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Start Game</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="gameSection" class="hidden">
+
+                <h2>Guess the number between 
+                    <span id="minNum" style="font-size: inherit;"></span> and 
+                    <span id="maxNum" style="font-size: inherit;"></span>
+                </h2>
+
+                <p>You Have <span id="remainingAttempts"></span> attempts remaining </p>
+                
+                <form onsubmit="playGame(event)" id="gameForm">
+                    <label for="guessed-number">Enter the number you guessed</label>
+                    <input type="number" id="guessedNumber" required>
+                </form>
+                <button type="submit" form="gameForm" class="btn btn-primary">Check</button>
+                <p class="hidden" id="message"></p>
+                <button id="playAgainBtn" class="btn btn-secondary hidden" onclick="resetGame()">Play Again</button>
+            </section>
+        </article>
+    </main>
+    <!-- Scripts -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+:root{
+    --primary : #2D6A4F ;
+    --secondary: #74C69D ;
+    --tertiary: #D8F3DC;
+    --text-color: #081C15;
+    --font-heading: 'STIX Two Math', serif;
+    --font-body: 'Raleway', sans-serif;
+    font-size: 100%; /* REM = 16px*/
+}
+*{
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Header Styles -> Ignore if unnecessary */
+header{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 4rem;
+    height: 4rem;
+    margin: 0 1.5rem;
+}
+h1{
+    font-family: Arial, sans-serif;
+    font-size: 1.75rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin: auto;
+}
+/* End of header style */
+main{
+    margin: auto;
+}
+label{
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+input{
+    margin: 0.5rem 0;
+    width: 100%;
+    outline: none;
+    border: 2px solid var(--primary);
+    padding: 0.5rem 1rem;
+    background-color: var(--tertiary);
+}
+input:focus{
+    border: 2px solid var(--secondary);
+}
+select {
+    outline: none;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--tertiary);
+    border: 2px solid var(--primary);
+}
+select:focus{
+    border: 2px solid var(--secondary);
+}
+h2{
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+.guess-number-section{
+    padding: 0 2rem;
+    border-radius: 10px;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+p{
+    padding: 1rem 0;
+    text-align: center;
+    font-weight: 900;
+}
+#gameSettings{
+    padding: 1rem 2rem;
+}
+#gameSection{
+    padding: 1rem 2rem;
+}
+#gameForm .label {
+    display: inline;
+}
+/* Utilites */
+.hidden{
+    display: none;
+}
+.text-danger{
+    color: red;
+}
+.text-success{
+    color: var(--secondary);
+}
+/* Components */
+.btn{
+    padding: 0.5rem 1rem;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-primary{
+    background-color: var(--primary);
+    color: #ffffff;
+}
+.btn-primary:hover{
+    background-color: var(--secondary);
+}
+.btn-secondary{
+    border: 2px solid var(--secondary);
+    background: none;
+    font-weight: 900;
+}
+.btn-secondary:hover{
+    background-color: var(--primary);
+    color: #ffffff;
+}
