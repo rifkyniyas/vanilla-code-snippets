@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=STIX+Two+Math&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Favicon -->
@@ -16,15 +16,21 @@
 </head>
 <body>
     <header>
-        <a href="../">
-            <img src="../images/logo.svg" alt="vanilla-code-snippets-logo" class="logo">
-        </a>
-        <h1>BMI Calculator</h1>
+        <section class="header__logo__container">
+            <a href="../">
+                <img src="../images/logo.svg" alt="vanilla-code-snippets-logo" class="logo">
+            </a>
+        </section>
+        <section class="header__content">
+            <h1>BMI Calculator</h1>
+            <h2>Vanilla Code Snippets</h2>
+        </section>
     </header>
     <main>
-        <section class="guess-number-section">
+        <img src="./images/weght-icon.png" class="overlay-icons" alt="weight-icon">
+        <section class="glass">
             <form onsubmit="displayBMI(event, this)">
-
+                <h3>Calculate BMI</h3>
                 <article>
                     <label for="unitSystem">Unit system</label>
                     <select name="unitSystem" id="unitSystem" onchange="changeUnits(event)" required>
@@ -32,45 +38,69 @@
                         <option value="imperial">Imperial  (LB/ FT & IN) </option>
                     </select>
                 </article>
-
                 <hr>
-
                 <article id="metricUnits">
                     <div>
                         <label for="weightMetric">Weight</label>
                         <input type="text" name="weightInKG" id="weightInKG" placeholder="65" required>
-                        <span>KG</span>
+                        <span class="unit-indicator">KG</span>
                     </div>
                     <div>
                         <label for="heightMetric">Height</label>
                         <input type="text" name="heightInCM" id="heightInCM" placeholder="175" required>
-                        <span>CM</span>
+                        <span class="unit-indicator">CM</span>
                     </div>
                 </article>
-
                 <article id="imperialUnits" class="hidden">
                     <div>
                         <label for="weightImperial">Weight</label>
                         <input type="text" name="weightInLb" id="weightInLb" placeholder="143.3">
-                        <span>LB</span>
+                        <span class="unit-indicator">LB</span>
                     </div>
                     <div>
                         <label for="heightImperial">Height</label>
                         <input type="text" name="heightInFt" id="heightInFt" placeholder="5">
-                        <span>FT</span>
+                        <span class="unit-indicator">FT</span>
                         <input type="text" name="heightInIn" id="heightInIn" placeholder="4">
-                        <span>IN</span>
+                        <span class="unit-indicator">IN</span>
                     </div>
                 </article>
-
                 <article>
-                    <button type="submit">Calculate</button>
-                    <button type="reset">Reset</button>
+                    <button type="submit" class="btn btn-primary">Calculate</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
                 </article>
             </form>
+            <article id="BMIDisplayArea"></article>
         </section>
-        <section id="BMIDisplayArea"></section>
+        <img src="./images/cycle-icon.png" class="overlay-icons" alt="cycle-icon">
     </main>
+    <aside>
+        <img src="./images/stats-icon.png" class="overlay-icons" alt="statistics-icon">
+        <section class="glass">
+            <h3>BMI category references</h3>
+            <article class="category__container">
+                <span class="category__icon bg-danger"></span> 
+                <span class="category__name">Underweight</span>
+                <span class="category__details">Less than 18.5</span>
+            </article>
+            <article class="category__container">
+                <span class="category__icon bg-danger"></span> 
+                <span class="category__name">Normal</span>
+                <span class="category__details">Between 18.5 and 24.9</span>
+            </article>
+            <article class="category__container">
+                <span class="category__icon bg-danger"></span> 
+                <span class="category__name">Overweight</span>
+                <span class="category__details">Between 25 and 29.9</span>
+            </article>
+            <article class="category__container">
+                <span class="category__icon bg-danger"></span> 
+                <span class="category__name">Obesity</span>
+                <span class="category__details">30 or greater</span>
+            </article>
+        </section>
+        <img src="./images/heart-rate-icon.png" class="overlay-icons" alt="heart-rate-icon">
+    </aside>
     <!-- Scripts -->
     <script src="./js/script.js"></script>
 </body>

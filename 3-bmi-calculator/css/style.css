@@ -1,10 +1,14 @@
+/* Removing default styles */
 :root{
-    --primary : #2D6A4F ;
-    --secondary: #74C69D ;
-    --tertiary: #D8F3DC;
-    --text-color: #081C15;
-    --font-heading: 'STIX Two Math', serif;
-    --font-body: 'Raleway', sans-serif;
+    --primary : #411E9C ;
+    --secondary: #3026BF ;
+    --tertiary: #B25AFA ;
+    --color-normal: #32DC21;
+    --color-warning: #F2B213;
+    --color-danger: #E81414;
+    --text-color: #ffffff;
+    --font-heading: 'Source Sans Pro', sans-serif;
+    --font-body: 'Inter', sans-serif;;
     font-size: 100%; /* REM = 16px*/
 }
 *{
@@ -13,65 +17,157 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.125rem;
 }
 body{
+    background-image: url('../images/mesh-gradient.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 1.25rem;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    
 }
 /* Header Styles -> Ignore if unnecessary */
 header{
     display: flex;
-    align-items: center;
+}
+.header__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header__logo__container{
+    padding: 1.5rem 1rem;
 }
 .logo{
     width: 4rem;
     height: 4rem;
-    margin: 0 1.5rem;
+}
+/* End of header styles */
+
+/* Styling tags */
+h1,h2,h3{
+    font-family: var(--font-heading);
 }
 h1{
-    font-family: Arial, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 900;
+}
+h2{
     font-size: 1.75rem;
-    padding: 1.5rem 0;
-    text-align: center;
-    margin: auto;
+    font-weight: 400;
 }
-/* End of header style */
+h3{
+    font-size: 1.625rem;
+}
 main{
-    margin: auto;
+    padding: 1rem;
+    position: relative;
 }
-/* Utilites */
-.hidden{
-    display: none;
+hr{
+    margin: 1rem  0;
 }
-.text-danger{
-    color: red;
+label{
+    display: block;
+    margin: 1rem 0;
 }
-.text-success{
-    color: var(--secondary);
+::placeholder{
+    color: #E4E4E4;
+}
+input,select,option{
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    color: var(--text-color);
+    background-color: var(--primary);
+    font-weight: 400;
+}
+/* Classes */
+.unit-indicator{
+    background-color: white;
+    color: var(--tertiary);
+    padding: 0.5rem;
+    margin-left: -2.5rem;
+}
+.glass{
+    padding: 1.5rem;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10.0px );
+    -webkit-backdrop-filter: blur( 10.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    z-index: 5;
+}
+.overlay-icons{
+    z-index: -3;
+    width: 9.375rem;
+    height: 9.375rem;
+}
+.category__container{
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+}
+.category__icon{
+    margin-right: 1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+}
+.category__name{
+    font-weight: 400;
+}
+.category__details{
+    margin-left: auto;
 }
 /* Components */
 .btn{
     padding: 0.5rem 1rem;
     margin: 2rem 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: 700;
 }
 .btn-primary{
-    background-color: var(--primary);
+    border: 2px solid var(--secondary);
+    background-color: var(--secondary);
     color: #ffffff;
 }
 .btn-primary:hover{
-    background-color: var(--secondary);
+    background-color: var(--primary);
 }
 .btn-secondary{
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--color-danger);
     background: none;
-    font-weight: 900;
 }
 .btn-secondary:hover{
-    background-color: var(--primary);
+    background-color: var(--color-danger);
     color: #ffffff;
+}
+/* Utilites */
+.hidden{
+    display: none;
+}
+.text-danger{
+    color: var(--color-danger);
+}
+.text-warning{
+    color: var(--color-warning);
+}
+.text-normal{
+    color: var(--color-normal);
+}
+.bg-danger{
+    background-color: var(--color-danger);
+}
+.bg-warning{
+    color: var(--color-warning);
+}
+.bg-normal{
+    color: var(--color-normal);
 }
