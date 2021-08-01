@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator | Vanilla Code Snippets</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=STIX+Two+Math&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/logo.svg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../">
+            <img src="../images/logo.svg" alt="vanilla-code-snippets-logo" class="logo">
+        </a>
+        <h1>BMI Calculator</h1>
+    </header>
+    <main>
+        <section class="guess-number-section">
+            <form onsubmit="displayBMI(event, this)">
+
+                <article>
+                    <label for="unitSystem">Unit system</label>
+                    <select name="unitSystem" id="unitSystem" onchange="changeUnits(event)" required>
+                        <option value="metric">Metric (KG/ CM) </option>
+                        <option value="imperial">Imperial  (LB/ FT & IN) </option>
+                    </select>
+                </article>
+
+                <hr>
+
+                <article id="metricUnits">
+                    <div>
+                        <label for="weightMetric">Weight</label>
+                        <input type="text" name="weightInKG" id="weightInKG" placeholder="65" required>
+                        <span>KG</span>
+                    </div>
+                    <div>
+                        <label for="heightMetric">Height</label>
+                        <input type="text" name="heightInCM" id="heightInCM" placeholder="175" required>
+                        <span>CM</span>
+                    </div>
+                </article>
+
+                <article id="imperialUnits" class="hidden">
+                    <div>
+                        <label for="weightImperial">Weight</label>
+                        <input type="text" name="weightInLb" id="weightInLb" placeholder="143.3">
+                        <span>LB</span>
+                    </div>
+                    <div>
+                        <label for="heightImperial">Height</label>
+                        <input type="text" name="heightInFt" id="heightInFt" placeholder="5">
+                        <span>FT</span>
+                        <input type="text" name="heightInIn" id="heightInIn" placeholder="4">
+                        <span>IN</span>
+                    </div>
+                </article>
+
+                <article>
+                    <button type="submit">Calculate</button>
+                    <button type="reset">Reset</button>
+                </article>
+            </form>
+        </section>
+        <section id="BMIDisplayArea"></section>
+    </main>
+    <!-- Scripts -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

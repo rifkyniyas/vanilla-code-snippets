@@ -1,0 +1,77 @@
+:root{
+    --primary : #2D6A4F ;
+    --secondary: #74C69D ;
+    --tertiary: #D8F3DC;
+    --text-color: #081C15;
+    --font-heading: 'STIX Two Math', serif;
+    --font-body: 'Raleway', sans-serif;
+    font-size: 100%; /* REM = 16px*/
+}
+*{
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Header Styles -> Ignore if unnecessary */
+header{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 4rem;
+    height: 4rem;
+    margin: 0 1.5rem;
+}
+h1{
+    font-family: Arial, sans-serif;
+    font-size: 1.75rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin: auto;
+}
+/* End of header style */
+main{
+    margin: auto;
+}
+/* Utilites */
+.hidden{
+    display: none;
+}
+.text-danger{
+    color: red;
+}
+.text-success{
+    color: var(--secondary);
+}
+/* Components */
+.btn{
+    padding: 0.5rem 1rem;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-primary{
+    background-color: var(--primary);
+    color: #ffffff;
+}
+.btn-primary:hover{
+    background-color: var(--secondary);
+}
+.btn-secondary{
+    border: 2px solid var(--secondary);
+    background: none;
+    font-weight: 900;
+}
+.btn-secondary:hover{
+    background-color: var(--primary);
+    color: #ffffff;
+}
