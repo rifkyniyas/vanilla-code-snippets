@@ -2,15 +2,16 @@ const BMIDisplayArea = document.getElementById('BMIDisplayArea')
 const toggleMessageArea = () => {
     BMIDisplayArea.classList.toggle('hidden')
 }
-const calculateBMI = (weight, height) => {
+const calculateBmiInMetric = (weight, height) => {
     const bmi = weight / (height * height)
     return  roundToFirstDecimal( bmi )
 }
-const convertLbToKG = (lb) => {
-    return lb / 2.205
+const calculateBmiInImperial = (weight, height) => {
+    const bmi = (weight / (height * height)) * 703
+    return roundToFirstDecimal( bmi )
 }
-const convertFtAndInToCm = (Ft , In) => {
-    return (Ft * 30.48) + (In * 2.54)
+const convertFtToIn = (Ft) => {
+    return Ft * 12
 }
 const roundToFirstDecimal = (num) => {
     return Math.round( num * 10) / 10
@@ -19,22 +20,19 @@ const displayBMI = (e, form) => {
     e.preventDefault()
     const formData = new FormData(form)
     const unitType = formData.get('unitSystem')
-    let weightInKG = 0
-    let heightInCm = 0
+    let BMI = 0
     if(unitType == "metric"){
-        weightInKG = parseFloat(formData.get('weightInKG')) 
-        heightInCm = parseFloat(formData.get('heightInCM')) / 100
+        const weight = parseFloat(formData.get('weightInKG')) 
+        const height = parseFloat(formData.get('heightInCM')) / 100
+        BMI = calculateBmiInMetric(weight, height)
     }else if (unitType == "imperial" ){
-        weightInKG = convertLbToKG(parseFloat(formData.get('weightInLb')))
-        heightInCm = convertFtAndInToCm( parseFloat(formData.get('heightInFt')) , parseFloat(formData.get('heightInIn')) )
+        const weight = parseFloat(formData.get('weightInLb'))
+        const height = convertFtToIn( parseFloat(formData.get('heightInFt')) ) + parseFloat(formData.get('heightInIn'))
+        BMI = calculateBmiInImperial(weight, height);
     }
-    const weight = roundToFirstDecimal(weightInKG)
-    console.log(weight, weightInKG)
-    const height = roundToFirstDecimal(heightInCm)
-    const BMI = calculateBMI(weight, height) 
-    console.log(BMI)
     const [BMIMessage, classToUse] = generateBMIMessage(BMI)
-    toggleMessageArea()
+    console.log(BMIMessage)
+    if(BMIDisplayArea.classList.contains('hidden')) BMIDisplayArea.classList.remove('hidden')
     BMIDisplayArea.classList.add(classToUse)
     BMIDisplayArea.innerHTML = BMIMessage
 }

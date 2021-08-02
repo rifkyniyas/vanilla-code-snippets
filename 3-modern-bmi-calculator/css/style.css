@@ -167,6 +167,11 @@ input,select,option{
 .category__details{
     margin-left: auto;
 }
+#BMIDisplayArea{
+    background: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
 /* Components */
 .btn{
     padding: 0.5rem 1rem;
