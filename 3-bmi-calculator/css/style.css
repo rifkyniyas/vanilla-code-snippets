@@ -17,7 +17,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-body);
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 body{
     background-image: url('../images/mesh-gradient.jpg');
@@ -27,7 +27,8 @@ body{
     background-size: cover;
     padding: 0 1.25rem;
     min-height: 100vh;
-    
+    display: flex;
+    flex-direction: column;
 }
 /* Header Styles -> Ignore if unnecessary */
 header{
@@ -42,29 +43,34 @@ header{
     padding: 1.5rem 1rem;
 }
 .logo{
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
 }
 /* End of header styles */
-
-/* Styling tags */
+.grid-container{
+    padding: 1rem 0;
+    margin: auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+}
 h1,h2,h3{
     font-family: var(--font-heading);
 }
 h1{
-    font-size: 2.25rem;
+    font-size: 1.75rem ;
     font-weight: 900;
 }
 h2{
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     font-weight: 400;
 }
 h3{
-    font-size: 1.625rem;
+    font-size: 1.125rem;
+    text-align: center;
 }
-main{
-    padding: 1rem;
+main, aside{
     position: relative;
+    padding: 3.125rem 1rem;
 }
 hr{
     margin: 1rem  0;
@@ -77,6 +83,7 @@ label{
     color: #E4E4E4;
 }
 input,select,option{
+    font-size: 0.875rem;
     border: none;
     outline: none;
     padding: 0.5rem;
@@ -89,25 +96,61 @@ input,select,option{
     background-color: white;
     color: var(--tertiary);
     padding: 0.5rem;
-    margin-left: -2.5rem;
+    margin-left: -2rem;
 }
 .glass{
+    margin: 0 2rem;
     padding: 1.5rem;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 10.0px );
-    -webkit-backdrop-filter: blur( 10.0px );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    position: relative;
     z-index: 5;
 }
-.overlay-icons{
+.overlay-icon{
+    position: absolute;
     z-index: -3;
-    width: 9.375rem;
-    height: 9.375rem;
+    width: 4.688rem;
+    height: 4.688rem;
+}
+#weight-icon{
+    top: 1rem;
+    left: 1rem;
+}
+#cycle-icon{
+    bottom: 1rem;
+    right: 1rem;
+}
+#statistics-icon{
+    top: 1rem;
+    right: 1rem;
+}
+#heart-rate-icon{
+    bottom: 7rem;
+    right: 1rem;
+}
+@media (max-width: 768px) { 
+    :root{
+        font-size: 75%;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(240px, 1fr));
+    }
+    #heart-rate-icon{
+        bottom: 1rem;
+        right: 1rem;
+    }
 }
 .category__container{
     padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+}
+.category__name__container{
     display: flex;
     align-items: center;
 }
@@ -166,8 +209,8 @@ input,select,option{
     background-color: var(--color-danger);
 }
 .bg-warning{
-    color: var(--color-warning);
+    background-color: var(--color-warning);
 }
 .bg-normal{
-    color: var(--color-normal);
+    background-color: var(--color-normal);
 }

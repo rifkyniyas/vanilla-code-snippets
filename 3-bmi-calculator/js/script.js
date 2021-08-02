@@ -1,6 +1,7 @@
-
 const BMIDisplayArea = document.getElementById('BMIDisplayArea')
-
+const toggleMessageArea = () => {
+    BMIDisplayArea.classList.toggle('hidden')
+}
 const calculateBMI = (weight, height) => {
     const bmi = weight / (height * height)
     return  roundToFirstDecimal( bmi )
@@ -33,6 +34,7 @@ const displayBMI = (e, form) => {
     const BMI = calculateBMI(weight, height) 
     console.log(BMI)
     const [BMIMessage, classToUse] = generateBMIMessage(BMI)
+    toggleMessageArea()
     BMIDisplayArea.classList.add(classToUse)
     BMIDisplayArea.innerHTML = BMIMessage
 }
@@ -61,6 +63,7 @@ const generateBMIMessage = BMI => {
     return [BMIMessage , classToUse]
 }
 const changeUnits = (e) => {
+    toggleMessageArea ()
     const selectedUnits = e.target.value
     imperialUnits.classList.toggle('hidden')
     metricUnits.classList.toggle('hidden')

@@ -26,81 +26,89 @@
             <h2>Vanilla Code Snippets</h2>
         </section>
     </header>
-    <main>
-        <img src="./images/weght-icon.png" class="overlay-icons" alt="weight-icon">
-        <section class="glass">
-            <form onsubmit="displayBMI(event, this)">
-                <h3>Calculate BMI</h3>
-                <article>
-                    <label for="unitSystem">Unit system</label>
-                    <select name="unitSystem" id="unitSystem" onchange="changeUnits(event)" required>
-                        <option value="metric">Metric (KG/ CM) </option>
-                        <option value="imperial">Imperial  (LB/ FT & IN) </option>
-                    </select>
-                </article>
-                <hr>
-                <article id="metricUnits">
-                    <div>
+    <div class="grid-container">
+        <main>
+            <!--Overlay Icons-->
+            <img src="./images/weght-icon.png" id="weight-icon" class="overlay-icon" alt="weight-icon">
+            <img src="./images/cycle-icon.png" id="cycle-icon" class="overlay-icon" alt="cycle-icon">
+            <section class="glass">
+                <form onsubmit="displayBMI(event, this)">
+                    <h3>Calculate BMI</h3>
+                    <article>
+                        <label for="unitSystem">Unit system</label>
+                        <select name="unitSystem" id="unitSystem" onchange="changeUnits(event)" required>
+                            <option value="metric">Metric (KG/ CM) </option>
+                            <option value="imperial">Imperial  (LB/ FT & IN) </option>
+                        </select>
+                    </article>
+                    <hr>
+                    <article id="metricUnits">
                         <label for="weightMetric">Weight</label>
-                        <input type="text" name="weightInKG" id="weightInKG" placeholder="65" required>
-                        <span class="unit-indicator">KG</span>
-                    </div>
-                    <div>
+                        <div>
+                            <input type="text" name="weightInKG" id="weightInKG" placeholder="65" required>
+                            <span class="unit-indicator">KG</span>
+                        </div>
                         <label for="heightMetric">Height</label>
-                        <input type="text" name="heightInCM" id="heightInCM" placeholder="175" required>
-                        <span class="unit-indicator">CM</span>
-                    </div>
-                </article>
-                <article id="imperialUnits" class="hidden">
-                    <div>
+                        <div>
+                            <input type="text" name="heightInCM" id="heightInCM" placeholder="175" required>
+                            <span class="unit-indicator">CM</span>
+                        </div>
+                    </article>
+                    <article id="imperialUnits" class="hidden">
                         <label for="weightImperial">Weight</label>
-                        <input type="text" name="weightInLb" id="weightInLb" placeholder="143.3">
-                        <span class="unit-indicator">LB</span>
+                        <div>
+                            <input type="text" name="weightInLb" id="weightInLb" placeholder="143.3">
+                            <span class="unit-indicator">LB</span>
+                        </div>
+                            <label for="heightImperial">Height</label>
+                        <div>
+                            <input type="text" name="heightInFt" id="heightInFt" placeholder="5">
+                            <span class="unit-indicator">FT</span>
+                        
+                            <input type="text" name="heightInIn" id="heightInIn" placeholder="4">
+                            <span class="unit-indicator">IN</span>
+                        </div>
+                    </article>
+                    <article>
+                        <button type="submit" class="btn btn-primary">Calculate</button>
+                        <button type="reset" onclick="toggleMessageArea()" class="btn btn-secondary">Reset</button>
+                    </article>
+                </form>
+                <article id="BMIDisplayArea" class="hidden"></article>
+            </section>
+        </main>
+        <aside>
+            <img src="./images/stats-icon.png" id="statistics-icon" class="overlay-icon" alt="statistics-icon">
+            <img src="./images/heart-rate-icon.png" id="heart-rate-icon" class="overlay-icon" alt="heart-rate-icon">
+            <section class="glass category__reference">
+                
+                <h3>BMI category references</h3>
+                <article class="category__container">
+                    <div class="category__name__container">
+                        <span class="category__icon bg-danger"></span> 
+                        <span class="category__name">Underweight</span>
                     </div>
-                    <div>
-                        <label for="heightImperial">Height</label>
-                        <input type="text" name="heightInFt" id="heightInFt" placeholder="5">
-                        <span class="unit-indicator">FT</span>
-                        <input type="text" name="heightInIn" id="heightInIn" placeholder="4">
-                        <span class="unit-indicator">IN</span>
-                    </div>
+                    <div class="category__details">Less than 18.5</div>
                 </article>
-                <article>
-                    <button type="submit" class="btn btn-primary">Calculate</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
+                <article class="category__container">
+                    <span class="category__icon bg-normal"></span> 
+                    <span class="category__name">Normal</span>
+                    <span class="category__details">18.5 - 24.9</span>
                 </article>
-            </form>
-            <article id="BMIDisplayArea"></article>
-        </section>
-        <img src="./images/cycle-icon.png" class="overlay-icons" alt="cycle-icon">
-    </main>
-    <aside>
-        <img src="./images/stats-icon.png" class="overlay-icons" alt="statistics-icon">
-        <section class="glass">
-            <h3>BMI category references</h3>
-            <article class="category__container">
-                <span class="category__icon bg-danger"></span> 
-                <span class="category__name">Underweight</span>
-                <span class="category__details">Less than 18.5</span>
-            </article>
-            <article class="category__container">
-                <span class="category__icon bg-danger"></span> 
-                <span class="category__name">Normal</span>
-                <span class="category__details">Between 18.5 and 24.9</span>
-            </article>
-            <article class="category__container">
-                <span class="category__icon bg-danger"></span> 
-                <span class="category__name">Overweight</span>
-                <span class="category__details">Between 25 and 29.9</span>
-            </article>
-            <article class="category__container">
-                <span class="category__icon bg-danger"></span> 
-                <span class="category__name">Obesity</span>
-                <span class="category__details">30 or greater</span>
-            </article>
-        </section>
-        <img src="./images/heart-rate-icon.png" class="overlay-icons" alt="heart-rate-icon">
-    </aside>
+                <article class="category__container">
+                    <span class="category__icon bg-warning"></span> 
+                    <span class="category__name">Overweight</span>
+                    <span class="category__details">25 - 29.9</span>
+                </article>
+                <article class="category__container">
+                    <span class="category__icon bg-danger"></span> 
+                    <span class="category__name">Obesity</span>
+                    <span class="category__details">30 or greater</span>
+                </article>
+            </section>
+            
+        </aside>
+    </div>
     <!-- Scripts -->
     <script src="./js/script.js"></script>
 </body>
