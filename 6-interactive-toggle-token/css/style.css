@@ -1,0 +1,122 @@
+:root {
+    --primary: #3E00FF;
+    --secondary: #AE00FB;
+    --tertiary: #c5e3f6;
+    --font-color: #170055;
+    --heading-font: "PT Sans", sans-serif;
+    --body-font: "Montserrat", sans-serif;
+    font-size: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: var(--font-color);
+}
+body {
+    font-family: var(--body-font);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Header Styles */
+header {
+    display: flex;
+}
+.header__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header__logo__container {
+    padding: 1rem 0;
+}
+.logo {
+    width: 5rem;
+    height: 5rem;
+}
+h1,
+h2 {
+    font-family: var(--heading-font);
+}
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+h2 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+/* Main styling */
+h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+h4{
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+main {
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.toggle__token__checkbox{
+    display: none;
+}
+.inline-block{
+    display: inline-block !important;
+}
+.toggle__token__text{
+    display: block;
+    margin: 1rem 0;
+    cursor: pointer;
+    padding: 0.8rem 2rem;
+    background-color: var(--tertiary);
+    width: 100%;
+    height: 100%;
+}
+.toggle__token__checkbox:checked + .toggle__token__text{
+    background-color: var(--secondary);
+    color: #ffffff;
+}
+.toggle__token__text:hover{
+    opacity: 0.7;
+}
+.inline__toggle__token__container{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 50px);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    margin-bottom: 3rem;
+} 
+.inline__toggle__token__container label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Button styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: #ffffff;
+}
+button:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+@media (max-width: 768px) {
+    :root{
+        font-size: 90%;
+    }
+}
